@@ -166,7 +166,31 @@ export function useArchiveSectionMotion() {
           );
         });
 
-        // 4. STORY BRIDGE — THE WOVEN THREAD
+      });
+
+      return () => mm.revert();
+    },
+    { scope: root },
+  );
+
+  return root;
+}
+
+export function useJourneySectionMotion() {
+  const root = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      if (prefersReducedMotion()) return;
+
+      const scope = root.current;
+      if (!scope) return;
+
+      const mm = gsap.matchMedia();
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
+        const $ = gsap.utils.selector(scope);
+
+        // STORY BRIDGE — THE WOVEN THREAD
         const collage = $("[data-story-collage]");
         const storyCopy = $("[data-story-copy]");
         const links = $("[data-story-link]");

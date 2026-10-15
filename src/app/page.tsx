@@ -2,7 +2,10 @@ import { SiteHeader } from "@/components/site-header";
 import { Hero } from "@/components/hero";
 import { Disciplines } from "@/components/disciplines";
 import { ThenNow } from "@/components/then-now";
-import { ArchiveStorySections } from "@/components/archive-story-sections";
+import {
+  ArchiveStorySections,
+  JourneySection,
+} from "@/components/archive-story-sections";
 import { Featured } from "@/components/featured";
 import { Cta } from "@/components/cta";
 import { SiteFooter } from "@/components/site-footer";
@@ -16,13 +19,34 @@ export default function Home() {
         <Hero />
         <TornDivider variant="a" above="#0d0c0b" below="var(--paper)" />
         <Disciplines />
-        <TornDivider variant="b" above="var(--paper)" below="var(--black)" reveal="up" />
+        <TornDivider
+          variant="b"
+          above="var(--paper)"
+          below="var(--black)"
+          reveal="up"
+        />
         <ThenNow />
         <TornDivider variant="c" above="var(--black)" below="var(--paper)" />
         <ArchiveStorySections />
-        <TornDivider variant="a" above="var(--paper)" below="var(--black)" reveal="up" />
+        <TornDivider
+          variant="a"
+          above="var(--paper)"
+          below="var(--black)"
+          reveal="up"
+        />
+        <JourneySection />
+        <TornDivider
+          variant="c"
+          above="var(--black)"
+          below="var(--paper)"
+        />
         <Featured />
-        <TornDivider variant="b" above="var(--black)" below="var(--black)" reveal="up" />
+        <TornDivider
+          variant="b"
+          above="var(--paper)"
+          below="var(--black)"
+          reveal="up"
+        />
         <Cta />
       </main>
       <SiteFooter />

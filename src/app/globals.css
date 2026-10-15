@@ -1316,3 +1316,61 @@ html.is-loading body {
     letter-spacing: 0;
   }
 }
+
+
+/* ---------- photography archive ---------- */
+.photo{background:var(--paper);color:var(--ink);padding:clamp(48px,6vw,72px) 0 clamp(56px,7vw,90px)}
+.photo-head{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center}
+.photo-head h2{font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,4.4vw,3.4rem);line-height:1.12;margin-top:.3rem;max-width:12ch}
+.photo-head p.lede{justify-self:end;max-width:30rem;font-size:.85rem;line-height:1.4;color:#3b3731}
+.ex-hero{position:relative;display:flex;align-items:center;min-height:clamp(300px,36vw,460px);margin:28px calc(var(--pad)*-.3) 0;overflow:hidden}
+.ex-hero-img{position:absolute;inset:0;z-index:0}
+.ex-hero-img img{width:100%;height:100%;object-fit:cover}
+.ex-hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to right,rgba(7,10,8,.75),rgba(7,10,8,.15) 65%)}
+.ex-copy{position:relative;z-index:2;color:#fff;padding:0 clamp(20px,3vw,34px)}
+.ex-top{display:flex;gap:3rem;align-items:baseline;font-size:.78rem}
+.ex-top .count{color:#fff;letter-spacing:.06em}
+.ex-top .count span{opacity:.6;margin-left:.5rem}
+.ex-copy h3{font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,4.8vw,3.6rem);line-height:1.12;margin:1rem 0 .8rem}
+.ex-copy p{font-size:.92rem;margin-bottom:1.6rem}
+.ex-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.8vw,22px);margin:24px calc(var(--pad)*-.3) 0}
+.ex-card{background:#100f0e;color:#fff;transition:transform .3s,box-shadow .3s}
+.ex-card:hover{transform:translateY(-6px);box-shadow:0 16px 28px rgba(0,0,0,.5)}
+.ex-card-img{position:relative;aspect-ratio:1.08;overflow:hidden}
+.ex-card-img img{width:100%;height:100%;object-fit:cover}
+.ex-card .badge{position:absolute;z-index:2;top:12px;left:12px;font-size:.78rem;letter-spacing:.04em}
+.ex-body{padding:18px clamp(14px,1.6vw,22px) 20px}
+.ex-body .kicker{font-size:.62rem}
+.ex-body h4{font-family:var(--serif);font-weight:400;font-size:clamp(1.15rem,1.7vw,1.5rem);line-height:1.2;margin:.5rem 0 .4rem}
+.ex-body p{font-size:.84rem;line-height:1.45;color:#d8d2c6;margin-bottom:1rem}
+.enter{display:inline-flex;align-items:center;gap:.8rem;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500}
+.enter .circ-btn,.ex-copy .circ-btn{border-color:var(--accent)}
+.enter:hover .circ-btn{background:var(--accent)}
+.ex-copy .enter{font-size:.78rem}
+.ex-copy .circ-btn{width:42px;height:42px}
+
+/* ---------- journey continues ---------- */
+.journey{position:relative;background:var(--black);color:#fff;overflow:hidden;border-top:1px solid var(--line-d)}
+.journey-bg{position:absolute;left:0;top:0;bottom:0;width:30%;border:0;overflow:hidden;clip-path:polygon(0 0,92% 0,100% 8%,94% 20%,100% 34%,93% 48%,100% 62%,94% 78%,100% 90%,95% 100%,0 100%)}
+.journey-bg img{width:100%;height:100%;object-fit:cover}
+.journey-grid{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);align-items:center;gap:clamp(24px,4vw,56px);min-height:clamp(220px,26vw,300px);padding-block:36px;padding-left:max(var(--pad),calc(30% + 20px))}
+.journey h2{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,3.6vw,2.9rem);line-height:1.12;margin:.5rem 0 1.1rem}
+.journey-copy p.sub{font-size:.9rem;line-height:1.45;max-width:20rem}
+.jlist{border-left:1px solid var(--accent);padding-left:clamp(16px,2.4vw,28px)}
+.jlist a{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid var(--line-d);font-size:1.05rem;transition:color .2s}
+.jlist li:last-child a{border-bottom:0}
+.jlist a span{border-bottom:2px solid var(--accent);padding-bottom:3px}
+.jlist a:hover{color:var(--accent)}
+.jlist svg{width:18px;height:18px}
+
+@media (max-width:1000px){
+  .ex-grid{grid-template-columns:repeat(2,1fr)}
+  .journey-bg{width:100%;opacity:.35;clip-path:none}
+  .journey-grid{padding-left:var(--pad)}
+}
+@media (max-width:760px){
+  .photo-head,.journey-grid{grid-template-columns:1fr}
+  .photo-head p.lede{justify-self:start}
+  .ex-top{gap:1.5rem;flex-wrap:wrap}
+}
+@media (max-width:480px){.ex-grid{grid-template-columns:1fr}}
