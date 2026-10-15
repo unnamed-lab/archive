@@ -365,9 +365,21 @@ ul {
 }
 
 .cards {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: clamp(14px, 2.4vw, 32px);
+}
+
+.archive-thread {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: visible;
+  pointer-events: none;
+  color: var(--accent);
 }
 
 .card {
@@ -375,7 +387,7 @@ ul {
   aspect-ratio: 256 / 460;
   overflow: hidden;
   color: #fff;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: box-shadow 0.3s;
   background: #222;
 }
 
