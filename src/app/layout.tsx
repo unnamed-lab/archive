@@ -18,7 +18,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://archive.vercel.app"),
+  metadataBase: new URL("https://archive-museum.vercel.app"),
   title: {
     default: "ARCHIVE — A living record of Nigerian creativity",
     template: "%s | ARCHIVE",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     title: "ARCHIVE — A living record of Nigerian creativity",
     description:
       "A digital museum celebrating Nigeria’s creative history across photography, music, fashion and design.",
-    url: "https://archive.vercel.app",
+    url: "https://archive-museum.vercel.app",
     siteName: "ARCHIVE",
     images: [
       {
