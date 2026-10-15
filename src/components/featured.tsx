@@ -208,7 +208,12 @@ export function Featured() {
       <div className="wrap feat-grid">
         <div className="sleeve-wrap" data-artefact-object>
           <div className="vinyl" data-vinyl aria-hidden="true" />
-          <div className="sleeve" data-sleeve style={{ background: artefact.tint }}>
+          <div
+            className="sleeve"
+            data-sleeve
+            data-curator="View artefact"
+            style={{ background: artefact.tint }}
+          >
             <Image
               key={artefact.image}
               src={`/images/${artefact.image}`}

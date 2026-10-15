@@ -26,6 +26,20 @@ const footerLinks = [
 export function SiteFooter() {
   return (
     <footer className="foot">
+      <svg
+        className="foot-thread"
+        viewBox="0 0 1200 120"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M0 62 C120 24 210 96 340 58 S560 12 700 72 S940 26 1080 66 S1170 40 1200 52"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          vectorEffect="non-scaling-stroke"
+        />
+      </svg>
       <div className="wrap">
         <div className="foot-top">
           <a className="logo" href="#">

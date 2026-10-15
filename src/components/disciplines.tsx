@@ -72,6 +72,18 @@ export function Disciplines() {
           scrollTrigger: { trigger: section, start: "top 76%", once: true },
         })
         .fromTo(
+          q(".drum-bars i"),
+          { scaleY: 0.25 },
+          {
+            scaleY: 1,
+            duration: 0.24,
+            stagger: { each: 0.09, from: "start" },
+            repeat: 3,
+            yoyo: true,
+          },
+          0,
+        )
+        .fromTo(
           cards,
           {
             y: 54,
@@ -85,6 +97,7 @@ export function Disciplines() {
             duration: 0.85,
             stagger: 0.14,
           },
+          0,
         )
         .fromTo(
           q(".card .num"),
@@ -207,7 +220,14 @@ export function Disciplines() {
       <div className="wrap">
         <div className="disc-head">
           <div>
-            <p className="kicker">The archive</p>
+            <div className="disc-kicker">
+              <p className="kicker">The archive</p>
+              <span className="drum-bars" aria-hidden="true">
+                <i />
+                <i />
+                <i />
+              </span>
+            </div>
             <h2>
               Four disciplines.
               <br />
@@ -249,6 +269,7 @@ export function Disciplines() {
               key={discipline.num}
               className="card"
               data-discipline-card
+              data-curator="View collection"
               style={{ backgroundColor: discipline.tint }}
             >
               <Image
