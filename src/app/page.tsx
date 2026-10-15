@@ -39,6 +39,7 @@ export default function Home() {
           variant="c"
           above="var(--black)"
           below="var(--paper)"
+          reveal="up"
         />
         <Featured />
         <TornDivider
