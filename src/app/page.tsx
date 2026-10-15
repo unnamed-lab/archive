@@ -15,11 +15,11 @@ export default function Home() {
         <Hero />
         <TornDivider variant="a" above="#0d0c0b" below="var(--paper)" />
         <Disciplines />
-        <TornDivider variant="b" above="var(--paper)" below="var(--black)" />
+        <TornDivider variant="b" above="var(--paper)" below="var(--black)" reveal="up" />
         <ThenNow />
         <TornDivider variant="c" above="var(--black)" below="var(--paper)" />
         <Featured />
-        <TornDivider variant="a" above="var(--paper)" below="var(--black)" />
+        <TornDivider variant="a" above="var(--paper)" below="var(--black)" reveal="up" />
         <Cta />
       </main>
       <SiteFooter />

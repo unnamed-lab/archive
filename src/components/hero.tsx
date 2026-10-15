@@ -20,8 +20,8 @@ export function Hero() {
 
       gsap.set(sheet, { display: "block" });
 
-      gsap
-        .timeline({ defaults: { ease: "power3.out" } })
+      const intro = gsap
+        .timeline({ defaults: { ease: "power3.out" }, paused: true })
         .to(sheet, { xPercent: 104, duration: 1.15 }, 0)
         .fromTo(
           q("[data-hero-photograph]"),
@@ -60,6 +60,24 @@ export function Hero() {
           1.9,
         );
 
+      // The loader signals when it starts parting; the hero entrance then plays
+      // as it is uncovered, so the two read as one continuous reveal.
+      let started = false;
+      const startIntro = () => {
+        if (started) return;
+        started = true;
+        intro.play(0);
+      };
+
+      const revealEvent = "archive:reveal";
+      if (document.documentElement.dataset.archiveRevealed === "true") {
+        startIntro();
+      } else {
+        window.addEventListener(revealEvent, startIntro, { once: true });
+      }
+      // Safety net if the loader never signals (e.g. its script fails).
+      const fallback = window.setTimeout(startIntro, 6000);
+
       const mm = gsap.matchMedia();
       mm.add("(min-width: 761px)", () => {
         gsap.to(collage, {
@@ -73,6 +91,11 @@ export function Hero() {
           },
         });
       });
+
+      return () => {
+        window.clearTimeout(fallback);
+        window.removeEventListener(revealEvent, startIntro);
+      };
     },
     { scope: root },
   );

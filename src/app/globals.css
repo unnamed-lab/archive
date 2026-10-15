@@ -35,6 +35,8 @@ body {
   color: var(--ink);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  /* Guard against transient horizontal overflow from entrance transforms. */
+  overflow-x: clip;
 }
 
 a {
@@ -1149,8 +1151,8 @@ html.is-loading body {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: min(72vw, 580px);
-  height: min(72vw, 580px);
+  width: min(58vw, 440px);
+  height: min(58vw, 440px);
   transform: translate(-50%, -50%);
   background: radial-gradient(circle, rgba(230, 80, 46, 0.42), transparent 62%);
   filter: blur(24px);
@@ -1165,7 +1167,7 @@ html.is-loading body {
 
 .al-map {
   display: block;
-  width: min(52vw, 420px);
+  width: min(35vw, 320px);
   height: auto;
   color: var(--al-cream);
 }
@@ -1217,7 +1219,7 @@ html.is-loading body {
 .al-title {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(2.4rem, 7vw, 4.4rem);
+  font-size: clamp(1.9rem, 5.6vw, 3.4rem);
   line-height: 1;
   letter-spacing: 0.02em;
   text-transform: uppercase;
@@ -1282,11 +1284,34 @@ html.is-loading body {
 }
 
 @media (max-width: 640px) {
+  .al-stage {
+    gap: clamp(14px, 2.6vh, 26px);
+    padding: 20px;
+  }
+
   .al-map {
-    width: min(78vw, 340px);
+    width: min(51vw, 260px);
   }
 
   .al-seal {
-    padding: 16px;
+    padding: 12px;
+  }
+
+  .al-strap {
+    letter-spacing: 0.18em;
+  }
+
+  .al-progress {
+    width: min(64vw, 260px);
+  }
+}
+
+@media (max-width: 380px) {
+  .al-map {
+    width: min(55vw, 210px);
+  }
+
+  .al-title {
+    letter-spacing: 0;
   }
 }

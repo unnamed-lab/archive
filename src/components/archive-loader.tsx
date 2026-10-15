@@ -98,6 +98,10 @@ export function ArchiveLoader() {
 
       const finish = () => {
         exiting = true;
+        // Hand off to the hero: its entrance waits for this signal so the two
+        // animations read as one continuous reveal.
+        document.documentElement.dataset.archiveRevealed = "true";
+        window.dispatchEvent(new Event("archive:reveal"));
         gsap.set(el, { pointerEvents: "none" });
         gsap
           .timeline({

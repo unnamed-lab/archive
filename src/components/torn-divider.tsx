@@ -16,20 +16,35 @@ interface TornDividerProps {
   variant?: EdgeVariant;
   above: string;
   below: string;
+  reveal?: "down" | "up";
 }
 
-export function TornDivider({ variant = "a", above, below }: TornDividerProps) {
+export function TornDivider({
+  variant = "a",
+  above,
+  below,
+  reveal = "down",
+}: TornDividerProps) {
   const root = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
       if (prefersReducedMotion() || !root.current) return;
 
+      // "down" reveals the torn edge from the top; "up" from the bottom.
+      // Dividers below a dark section tear downward, those above tear upward.
+      // Keep every side as a percentage so GSAP tweens a single, same-unit value
+      // (mixing `100%` with a unitless `0` snaps instead of animating).
       gsap.fromTo(
         root.current,
-        { clipPath: "inset(0 0 100% 0)" },
         {
-          clipPath: "inset(0 0 0% 0)",
+          clipPath:
+            reveal === "up"
+              ? "inset(100% 0% 0% 0%)"
+              : "inset(0% 0% 100% 0%)",
+        },
+        {
+          clipPath: "inset(0% 0% 0% 0%)",
           duration: 0.9,
           ease: "power2.inOut",
           scrollTrigger: {
