@@ -1074,3 +1074,219 @@ ul {
     transform: none !important;
   }
 }
+
+/* ---------- loading experience: a nation unfolding ---------- */
+.archive-loader {
+  --al-orange: #e6502e;
+  --al-cream: #f0e5d3;
+  --al-ink: #10110f;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  overflow: hidden;
+  color: var(--al-cream);
+  background: transparent;
+  animation: al-fallback 0.7s ease 4.2s forwards;
+}
+
+/* JS owns the exit once it boots; without JS the fallback frees the page. */
+.archive-loader--js {
+  animation: none;
+}
+
+@keyframes al-fallback {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+html.is-loading,
+html.is-loading body {
+  overflow: hidden;
+}
+
+.al-panel {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 50.5%;
+  background: var(--al-ink);
+  z-index: 1;
+}
+
+.al-panel--top {
+  top: 0;
+}
+
+.al-panel--bottom {
+  bottom: 0;
+}
+
+.al-grain {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.22;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='140' height='140' filter='url(%23g)' opacity='0.4'/></svg>");
+}
+
+.al-stage {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(18px, 3.4vh, 40px);
+  padding: 24px;
+  text-align: center;
+}
+
+.al-pigment {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(72vw, 580px);
+  height: min(72vw, 580px);
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(230, 80, 46, 0.42), transparent 62%);
+  filter: blur(24px);
+  pointer-events: none;
+}
+
+.al-seal {
+  position: relative;
+  display: inline-flex;
+  padding: clamp(16px, 3vw, 28px);
+}
+
+.al-map {
+  display: block;
+  width: min(52vw, 420px);
+  height: auto;
+  color: var(--al-cream);
+}
+
+.al-silhouette {
+  opacity: 0;
+}
+
+.al-weave line {
+  stroke: var(--al-orange);
+  stroke-width: 3;
+  opacity: 0.55;
+  stroke-dasharray: 2200;
+  stroke-dashoffset: 2200;
+}
+
+.al-outline {
+  stroke: var(--al-cream);
+  stroke-width: 6;
+  stroke-dasharray: 20000;
+  stroke-dashoffset: 20000;
+}
+
+.al-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--al-cream);
+  opacity: 0.5;
+  overflow: visible;
+}
+
+.al-frame rect {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1;
+  stroke-dasharray: 20000;
+  stroke-dashoffset: 20000;
+}
+
+.al-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(10px, 1.6vh, 18px);
+}
+
+.al-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 7vw, 4.4rem);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.al-char-mask {
+  display: inline-block;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+  vertical-align: bottom;
+}
+
+.al-char {
+  display: inline-block;
+  transform: translateY(115%);
+}
+
+.al-dot {
+  color: var(--al-orange);
+  opacity: 0;
+}
+
+.al-strap {
+  font-size: clamp(0.6rem, 1.5vw, 0.76rem);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(240, 229, 211, 0.72);
+  opacity: 0;
+}
+
+.al-progress {
+  width: min(56vw, 320px);
+  height: 2px;
+  background: rgba(240, 229, 211, 0.16);
+  overflow: hidden;
+}
+
+.al-progress-bar {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--al-orange);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.archive-loader--static .al-char {
+  transform: none;
+}
+
+.archive-loader--static .al-silhouette,
+.archive-loader--static .al-dot,
+.archive-loader--static .al-strap {
+  opacity: 1;
+}
+
+.archive-loader--static .al-outline,
+.archive-loader--static .al-frame rect,
+.archive-loader--static .al-weave line {
+  stroke-dashoffset: 0 !important;
+}
+
+@media (max-width: 640px) {
+  .al-map {
+    width: min(78vw, 340px);
+  }
+
+  .al-seal {
+    padding: 16px;
+  }
+}

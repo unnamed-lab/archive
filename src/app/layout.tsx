@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import { AnimationProvider } from "@/components/animation-provider";
+import { ArchiveLoader } from "@/components/archive-loader";
 import { CuratorCursor } from "@/components/curator-cursor";
 import "./globals.css";
 
@@ -26,6 +27,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <body>
+        <ArchiveLoader />
         <AnimationProvider>{children}</AnimationProvider>
         <CuratorCursor />
       </body>
