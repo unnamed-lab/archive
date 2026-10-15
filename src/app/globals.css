@@ -1113,7 +1113,7 @@ html.is-loading body {
   position: absolute;
   left: 0;
   width: 100%;
-  height: 50.5%;
+  height: 50%;
   background: var(--al-ink);
   z-index: 1;
 }
