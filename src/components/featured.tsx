@@ -5,8 +5,8 @@ import { ArrowRight01Icon } from "@hugeicons/core-free-icons";
 const thumbs = [
   { num: "01", label: "Music", image: "thumb-music.jpg" },
   { num: "02", label: "Photography", image: "thumb-photography.jpg" },
-  { num: "03", label: "Fashion", image: "thumb-fashion.jpg" },
-  { num: "04", label: "Design", image: "thumb-design.jpg" },
+  { num: "03", label: "Fashion", image: "thumb-fashion.png" },
+  { num: "04", label: "Design", image: "thumb-design.png" },
 ];
 
 export function Featured() {
