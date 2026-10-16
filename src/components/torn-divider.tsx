@@ -49,7 +49,9 @@ export function TornDivider({
           ease: "power2.inOut",
           scrollTrigger: {
             trigger: root.current,
-            start: "top 95%",
+            // Play the tear with the divider clear of the viewport's bottom
+            // edge; at 95% it starts hard against the screen edge mid-scroll.
+            start: "top 88%",
             once: true,
           },
         },

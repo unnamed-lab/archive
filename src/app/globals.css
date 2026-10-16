@@ -578,6 +578,10 @@ ul {
   margin-top: -1px;
   overflow: hidden;
   pointer-events: none;
+  /* Contain the ::after grain's `overlay` blend to this divider. Without an
+     isolated group the blend samples the whole scrolling page as its backdrop
+     and must be recomposited every frame, which shimmers during scroll. */
+  isolation: isolate;
 }
 
 .archive-transition svg {

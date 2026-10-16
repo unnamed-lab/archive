@@ -28,19 +28,14 @@ export default function Home() {
         <ThenNow />
         <TornDivider variant="c" above="var(--black)" below="var(--paper)" />
         <ArchiveStorySections />
-        <TornDivider
+        {/* <TornDivider
           variant="a"
           above="var(--paper)"
           below="var(--black)"
           reveal="up"
-        />
+        /> */}
         <JourneySection />
-        <TornDivider
-          variant="c"
-          above="var(--black)"
-          below="var(--paper)"
-          reveal="up"
-        />
+        <TornDivider variant="c" above="var(--black)" below="var(--paper)" />
         <Featured />
         <TornDivider
           variant="b"

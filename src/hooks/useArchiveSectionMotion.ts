@@ -32,7 +32,7 @@ export function useArchiveSectionMotion() {
             duration: 0.85,
             ease: "power3.out",
             scrollTrigger: {
-              trigger: "[data-photo-archive]",
+              trigger: scope,
               start: "top 78%",
               once: true,
             },
@@ -49,7 +49,7 @@ export function useArchiveSectionMotion() {
             delay: 0.12,
             ease: "power3.out",
             scrollTrigger: {
-              trigger: "[data-photo-archive]",
+              trigger: scope,
               start: "top 75%",
               once: true,
             },
@@ -197,7 +197,7 @@ export function useJourneySectionMotion() {
 
         const storyTl = gsap.timeline({
           scrollTrigger: {
-            trigger: "[data-story-bridge]",
+            trigger: scope,
             start: "top 76%",
             once: true,
           },
@@ -247,7 +247,7 @@ export function useJourneySectionMotion() {
           yPercent: -4,
           ease: "none",
           scrollTrigger: {
-            trigger: "[data-story-bridge]",
+            trigger: scope,
             start: "top bottom",
             end: "bottom top",
             scrub: 1,
